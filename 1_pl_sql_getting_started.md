@@ -1,4 +1,11 @@
 # PL/SQL Getting Started
+## Content : 
+1. What is PL/SQL
+2. Anonymous Block
+3. Data Types
+4. Variables
+5. Comments
+6. Constants
 
 ## 1. What is PL/SQL
 PL/SQL stands for “Procedural Language extensions to the Structured Query Language”.
