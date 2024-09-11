@@ -1,5 +1,6 @@
 # PL/SQL Getting Started
-## Content : 
+
+### Summary 
 1. What is PL/SQL
 2. Anonymous Block
 3. Data Types
