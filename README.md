@@ -5,11 +5,8 @@ The content of this document is based on this [tutorial](https://www.oracletutor
 
 ## Summury
 
-PL/SQL Getting Started
-
-What is PL/SQL
-Anonymous Block
-Data Types
+### PL/SQL Getting Started
+What is PL/SQL - Anonymous Block - Data Types
 Variables
 Comments
 Constants
