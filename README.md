@@ -7,9 +7,9 @@ The content of this document is based on this [tutorial](https://www.oracletutor
 
 PL/SQL Getting Started
 
-    What is PL/SQL
-    Anonymous Block
-    Data Types
-    Variables
-    Comments
-    Constants
+What is PL/SQL
+Anonymous Block
+Data Types
+Variables
+Comments
+Constants
