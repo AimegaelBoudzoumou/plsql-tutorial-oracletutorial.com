@@ -32,6 +32,10 @@ Procedure - Function - Cursor Variables - Implicit Statement Results
 ### 9. PL/SQL Packages
 PL/SQL Package - Package Specification - Package Body
 
-### PL/SQL Triggers
+### 10. PL/SQL Triggers
 PL/SQL Triggers - Statement-level Triggers - Row-level Triggers - INSTEAD OF Triggers - Disable Triggers - Enable Triggers - Drop Triggers - Fixing Mutating Table - Error
 
+### 11. PL/SQL Collections
+Associative Array - Nested Tables - VARRAY
+
+###
