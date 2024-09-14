@@ -72,5 +72,6 @@ BEGIN
 END;
 ```
 Without the above __EXCEPTION__, we get this error :
+
 ![image](https://github.com/user-attachments/assets/ce476c04-b5b7-4f36-a593-a15b3de4f61a)
 
