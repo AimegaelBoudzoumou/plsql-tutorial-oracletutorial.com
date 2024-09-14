@@ -10,7 +10,7 @@ __IF THEN ELSE__
 
 __IF THEN ELSIF__
 
-## IF THEN statement
+## 1. IF THEN statement
 Syntax :
 ```sql
 IF condition THEN
