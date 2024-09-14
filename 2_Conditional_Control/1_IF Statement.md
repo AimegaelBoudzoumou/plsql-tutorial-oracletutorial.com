@@ -1,9 +1,13 @@
 # IF Statement
 
-The IF statement allows you to either execute or skip a sequence of statements, depending on a condition. The IF statement has three forms:
+The IF statement allows you to either execute or skip a sequence of statements, depending on a condition. 
+
+The IF statement has three forms:
 
 __IF THEN__
+
 __IF THEN ELSE__
+
 __IF THEN ELSIF__
 
 ## IF THEN statement
