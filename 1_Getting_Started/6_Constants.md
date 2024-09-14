@@ -31,6 +31,7 @@ end;
 /
 ```
 Here is the error message:
+
 ![image](https://github.com/user-attachments/assets/f055ccc2-3ad6-43b8-ab07-adb59313c833)
 
 The following illustrates how to declare a constant whose value is derived from an expression:
