@@ -34,6 +34,7 @@ END;
 ![image](https://github.com/user-attachments/assets/4fe82c7a-0a31-4a97-9fa2-098ff00f0d45)
 
 The picture below illustrates the sequence:
+
 ![image](https://github.com/user-attachments/assets/3c462ebb-e40c-4797-a87b-a9bd9082b6a7)
 
 ## GOTO statement restrictions
