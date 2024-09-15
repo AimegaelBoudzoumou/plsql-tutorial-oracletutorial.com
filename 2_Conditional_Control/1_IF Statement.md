@@ -70,5 +70,35 @@ IF b_profitable THEN
 END IF;
 ```
 
-
+## 2. IF THEN ELSE statement
+Syntax:
+```sql
+IF condition THEN
+    statement;
+ELSE
+    else_statements;
+END IF;
 ```
+
+### IF THEN ELSE statement example
+The following example sets the sales commission to 10% if the sales revenue is greater than 200,000. Otherwise, the sales commission is set to 5%.
+```sql
+/*
+The following example sets the sales commission to 10% if the sales revenue is greater than 200,000. 
+Otherwise, the sales commission is set to 5%.
+*/
+
+DECLARE
+    n_sales      NUMBER := 1000;
+	n_commission NUMBER( 10, 2) := 0;
+BEGIN
+    IF n_sales > 200000 THEN
+    	n_commission := n_sales * 0.1;
+    ELSE
+        n_commission := n_sales * 0.05;
+    END IF;
+	DBMS_OUTPUT.PUT_LINE('Commission = ' || n_commission); -- will display : Commission = 50
+END;
+/
+```
+
