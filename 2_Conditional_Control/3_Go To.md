@@ -55,7 +55,7 @@ BEGIN
 END;
 /
 ```
-![image](https://github.com/user-attachments/assets/b1fea01e-fd1a-45a6-8213-5725d3ae647e)
+![image](https://github.com/user-attachments/assets/0668c5fe-d2d5-4060-8596-5984893cffd5)
 
 Second, you cannot use a GOTO statement to transfer control from one clause to another in the IF statement e.g., from IF clause to ELSIF or ELSE clause, or from one WHEN clause to another in the CASE statement.
 
