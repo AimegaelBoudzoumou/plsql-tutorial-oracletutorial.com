@@ -102,3 +102,55 @@ END;
 /
 ```
 ## 3. IF THEN ELSIF statement
+The following illustrates the structure of the IF THEN ELSIF statement:
+```sql
+IF condition_1 THEN
+  statements_1
+ELSIF condition_2 THEN
+  statements_2
+[ ELSIF condition_3 THEN
+    statements_3
+]
+...
+[ ELSE
+    else_statements
+]
+END IF;
+```
+
+In this structure, the condition between IF and THEN, which is the first condition, is always evaluated. Each other condition between ELSEIF and THEN is evaluated only if the preceding condition is FALSE. For example, the condition_2 is evaluated only if the condition_1 is false, the condition_3 is evaluated only if the condition_2 is false, and so on.
+
+If a condition is true, other subsequent conditions are not evaluated. If no condition is true, the else_statements between the ELSE and ENDIF execute. In case you skip the ELSE clause and no condition is TRUE, then the IF THEN ELSIF does nothing
+
+### IF THEN ELSIF statement example
+```sql
+DECLARE
+    n_sales NUMBER := 300000;
+	n_commission NUMBER( 10, 2 ) := 0;
+BEGIN
+    IF n_sales > 200000 THEN
+    	n_commission := n_sales * 0.1;
+	ELSIF n_sales <= 20000 AND n_sales > 100000 THEN
+        n_commission := n_sales * 0.05;
+	ELSIF n_sales <= 100000 AND n_sales > 50000 THEN
+        n_commission := n_sales * 0.03;
+	ELSE
+        n_commission := n_sales * 0.02;
+	END IF;
+END;
+/
+```
+
+## Nested IF statement
+You can nest an IF statement within another IF statement as shown below:
+```sql
+IF condition_1 THEN
+    IF condition_2 THEN
+        nested_if_statements;
+    END IF;
+ELSE
+    else_statements;
+END IF; 
+
+```
+However, if you have too many levels of nesting, the code will be hard to read and maintain, so you should avoid nesting the IF statements.
