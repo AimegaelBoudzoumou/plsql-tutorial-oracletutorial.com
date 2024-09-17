@@ -61,3 +61,29 @@ END;
 Second, you cannot use a GOTO statement to transfer control from one clause to another in the IF statement e.g., from IF clause to ELSIF or ELSE clause, or from one WHEN clause to another in the CASE statement.
 
 The following example attempts to transfer control to a clause in the __IF__ statement:
+```sql
+DECLARE
+    n_sales      NUMBER;
+    n_commission NUMBER;
+BEGIN
+    n_sales := 120000;
+	IF n_sales        > 100000 THEN
+        n_commission := 0.2;
+		GOTO zero_commission;
+	elsif n_sales    > 50000 THEN
+        n_commission := 0.15;
+	elsif n_sales    > 20000 THEN
+        n_commission := 0.1;
+	ELSE
+        <<zero_commission>>
+        n_commission := 0;
+	END IF;
+END;
+```
+Oracle issued the following error.
+
+![image](https://github.com/user-attachments/assets/5317a51f-547a-4885-a9d7-062788e341b1)
+
+Third, you cannot use a GOTO statement to transfer control out of a subprogram or into an exception handler.
+
+Fourth, you cannot use a GOTO statement to transfer control from an exception handler back into the current block.
