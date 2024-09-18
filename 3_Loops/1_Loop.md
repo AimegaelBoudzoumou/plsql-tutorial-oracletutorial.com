@@ -40,20 +40,16 @@ END LOOP;
 The following example illustrates how to use the LOOP statement to execute a sequence of code and EXIT statement to terminate the loop.
 ```sql
 declare
-    l_counter NUMBER := 0;
+	l_counter NUMBER := 0;
 begin
-
 	loop
-    l_counter := l_counter + 1;
-        if l_counter > 3 then
-        	exit;
-		    end if;
+		l_counter := l_counter + 1;
+		if l_counter > 3 then
+			exit;
+		end if;
 		dbms_output.put_line('Inside loop: ' || l_counter);
-		
 	end loop;
-
 	dbms_output.put_line('After loop: ' || l_counter);
-
 end;
 ```
 
@@ -70,14 +66,13 @@ Each time the control reaches the EXIT WHEN statement, the condition is evaluate
 The following example uses the EXIT WHEN statement to terminate a loop.
 ```sql
 declare
-    l_counter NUMBER := 0;
+	l_counter NUMBER := 0;
 begin
-    loop
-    	l_counter := l_counter + 1;
+	loop
+		l_counter := l_counter + 1;
 		EXIT WHEN l_counter > 7;
 		dbms_output.put_line('Inside loop: ' || l_counter );
-    end loop;
-
+	end loop;
 	dbms_output.put_line( 'After loop:' || l_counter);
 end;
 ```
