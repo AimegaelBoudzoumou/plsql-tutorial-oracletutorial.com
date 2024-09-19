@@ -99,14 +99,3 @@ BEGIN
   END LOOP outer_loop;
 end;
 ```
-The code below displays:
-
-Outer counter 1
- Inner counter 1
- Inner counter 2
- Inner counter 3
-Outer counter 2
- Inner counter 1
- Inner counter 2
- Inner counter 3
-
