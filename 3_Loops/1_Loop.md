@@ -92,7 +92,7 @@ begin
 		dbms_output.put_line('Outer counter ' || l_count_outer);
 
 		l_count_outer := 0;
-			<<inner_loop>>
+			<<inner_loop>> loop
             l_count_inner := l_count_inner + 1;
 			EXIT inner_loop WHEN l_count_inner > 3;
 			dbms_output.put_line('Inner counter ' || l_count_inner);
