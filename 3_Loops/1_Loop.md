@@ -79,27 +79,27 @@ end;
 ## Constructing nested loops using PL/SQL LOOP statements
 It is possible to nest a LOOP statement within another LOOP statement as shown in the following example:
 
--- The code below is yet not tested:
 ```sql
-declare
-    l_count_outer NUMBER := 0;
-	l_count_inner NUMBER := 0;
-begin
-    <<outer_loop>>
-    loop
-    	l_count_outer := l_count_outer + 1;
-		EXIT outer_loop WHEN l_count_outer > 2;
-		dbms_output.put_line('Outer counter ' || l_count_outer);
-
-		l_count_outer := 0;
-			<<inner_loop>> loop
-            l_count_inner := l_count_inner + 1;
-			EXIT inner_loop WHEN l_count_inner > 3;
-			dbms_output.put_line('Inner counter ' || l_count_inner);
-        end loop inner_loop;
-    end loop outer_loop;
+DECLARE
+  l_i NUMBER := 0;
+  l_j NUMBER := 0;
+BEGIN
+  <<outer_loop>>
+  LOOP
+    l_i := l_i + 1;
+	EXIT outer_loop WHEN l_i > 2;
+	dbms_output.put_line('Outer counter ' || l_i);
+    -- reset inner counter
+	l_j := 0;
+      <<inner_loop>> LOOP
+      l_j := l_j + 1;
+      EXIT inner_loop WHEN l_j > 3;
+      dbms_output.put_line(' Inner counter ' || l_j );
+      END LOOP inner_loop;
+  END LOOP outer_loop;
 end;
 ```
+The code below displays:
 
 Outer counter 1
  Inner counter 1
