@@ -18,7 +18,7 @@ The NULL statement is useful to:
 The following code sends an email to employees whose job titles are Sales Representative.
 ```sql
 IF job_title = 'Sales Representatives' THEN
-	send_mail;
+  send_mail;
 END IF;
 ```
 
@@ -29,34 +29,33 @@ To make it more clear, you can add a comment. For example:
 -- Send email to only Sales Representative, 
 -- for other employees, do nothing
 IF job_title = 'Sales Representatives' THEN
-	send_mail;
+  send_mail;
 END IF;
 ```
 
 Or you can add an ELSE clause that consists of a NULL statement to clearly state that no action is needed for other employees.
 ```sql
 IF job_title = 'Sales Representatives' THEN
-	send_mail;
+  send_mail;
 ELSE
-    NULL;
+  NULL;
 END IF;
 ```
 
 Similarly, you can use a NULL statement in the ELSE clause of a simple CASE statement as shown in the following example:
 ```sql
 DECLARE
-    n_credit_status VARCHAR2( 50 );
+  n_credit_status VARCHAR2( 50 );
 BEGIN
-    n_credit_status := 'GOOD';
-
-	CASE n_credit_status
-    WHEN 'BLOCK' THEN
-        request_for_aproval; -- must to be declared to execute the pl/sql code
-	WHEN 'WARNING' THEN
-        send_mail_to_accountant; -- must to be declared to execute the pl/sql code
-	ELSE
-        NULL;
-	END CASE;
+  n_credit_status := 'GOOD';
+  CASE n_credit_status
+  WHEN 'BLOCK' THEN
+    request_for_aproval; -- must to be declared to execute the pl/sql code
+  WHEN 'WARNING' THEN
+    send_mail_to_accountant; -- must to be declared to execute the pl/sql code
+  ELSE
+    NULL;
+  END CASE;
 END;
 ```
 
@@ -68,14 +67,13 @@ When using a GOTO statement, you need to specify a label followed by at least on
 The following example uses a GOTO statement to quickly move to the end of the program if no further processing is required:
 ```sql
 DECLARE
-    b_status BOOLEAN;
+  b_status BOOLEAN;
 BEGIN
-    IF b_status THEN
-    	GOTO end_of_programm;
-	END IF;
-
-	<<end_of_programm>>
-    NULL;
+  IF b_status THEN
+    GOTO end_of_programm;
+  END IF;
+  <<end_of_programm>>
+  NULL;
 END;
 ```
 
@@ -87,11 +85,11 @@ The following example creates a procedure named request_for_approval that doesnâ
 --DROP PROCEDURE request_for_approval;
 
 CREATE OR REPLACE PROCEDURE request_for_approval(
-    custumer_id           NUMBER,
-    customer_presentation VARCHAR2
+  custumer_id           NUMBER,
+  customer_presentation VARCHAR2
 )
 AS
 BEGIN
-    NULL;
+  NULL;
 END;
 ```
