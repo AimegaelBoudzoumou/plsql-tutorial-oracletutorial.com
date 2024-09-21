@@ -23,13 +23,13 @@ To terminate the loop prematurely, you use an EXIT or EXIT WHEN statement.
 ### 1) Simple PL/SQL WHILE loop example
 ```sql
 DECLARE
-    n_counter NUMBER := 1;
+  n_counter NUMBER := 1;
 BEGIN
-    WHILE n_counter <= 5
-    LOOP
-    	dbms_output.put_line('Counter : ' || n_counter);
-    	n_counter := n_counter + 1;
-    END LOOP;
+  WHILE n_counter <= 5
+  LOOP
+    dbms_output.put_line('Counter : ' || n_counter);
+    n_counter := n_counter + 1;
+  END LOOP;
 END;
 ```
 
@@ -37,13 +37,13 @@ END;
 The following example is the same as the one above except that it has an additional EXITWHEN statement.
 ```sql
 DECLARE
-    n_counter NUMBER := 1;
+  n_counter NUMBER := 1;
 BEGIN
-    WHILE n_counter <= 5
-    LOOP
-    	dbms_output.put_line('Counter : ' || n_counter);
-    	n_counter := n_counter + 1;
-		EXIT WHEN n_counter = 3;
-    END LOOP;
+  WHILE n_counter <= 5
+  LOOP
+    dbms_output.put_line('Counter : ' || n_counter);
+    n_counter := n_counter + 1;
+    EXIT WHEN n_counter = 3;
+  END LOOP;
 END;
 ```
