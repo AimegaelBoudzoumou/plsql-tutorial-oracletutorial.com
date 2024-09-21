@@ -34,7 +34,7 @@ A PL/SQL block has an exception-handling section that starts with the keyword EX
 
 ```sql
 BEGIN
-    DBMS_OUTPUT.PUT_LINE('Hello World');
+  DBMS_OUTPUT.PUT_LINE('Hello World');
 END;
 ```
 
@@ -54,21 +54,21 @@ __edit__
 ## More PL/SQL anonymous block examples
 ```sql
 declare
-	l_message VARCHAR2( 255 ) := 'Hello World';
+  l_message VARCHAR2( 255 ) := 'Hello World';
 begin
-	dbms_output.put_line(l_message);
+  dbms_output.put_line(l_message);
 end;
 ```
 
 The following PL/SQL code catch a __zero divide__ error :
 ```sql
 DECLARE
-	v_result NUMBER;
+  v_result NUMBER;
 BEGIN
-	v_result := 1 / 0;
-	EXCEPTION
-        WHEN ZERO_DIVIDE THEN
-        	DBMS_OUTPUT.PUT_LINE( SQLERRM );
+  v_result := 1 / 0;
+  EXCEPTION
+    WHEN ZERO_DIVIDE THEN
+      DBMS_OUTPUT.PUT_LINE( SQLERRM );
 END;
 ```
 Without the above __EXCEPTION__, we get this error :
