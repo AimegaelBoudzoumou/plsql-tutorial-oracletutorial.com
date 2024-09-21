@@ -10,44 +10,44 @@ The simple CASE statement has the following structure:
 ```sql
 CASE selector
 WHEN selector_value_1 THEN
-    statements_1
+  statements_1
 WHEN selector_value_2 THEN 
-    statement_2
+  statement_2
 ...
 ELSE
-    else_statements
+  else_statements
 END CASE;
 ```
 If no values in WHEN clauses match the result of the selector in the CASE clause, the sequence of statements in the ELSE clause executes.
 Because the ELSE clause is optional, you can skip it. However, if you do so, PL/SQL will implicitly use the following:
 ```sql
-ELSE 
-    RAISE CASE_NOT_FOUND;
+ELSE
+  RAISE CASE_NOT_FOUND;
 ```
 
 ### Simple CASE statement example
 The following example compares single value (c_grade) with many possible values ‘A’, ‘B’,’C’,’D’, and ‘F’:
 ```sql
 DECLARE
-    c_grade CHAR( 1 );
-	c_rank  VARCHAR2( 20 );
+  c_grade CHAR( 1 );
+  c_rank  VARCHAR2( 20 );
 BEGIN
-    c_grade := 'Z';
-	CASE c_grade
-        WHEN 'A' THEN
-        	c_rank := 'Excellent';
-		WHEN 'B' THEN
-            c_rank := 'Very Good';
-		WHEN 'C' THEN
-            c_rank := 'Good';
-		WHEN 'D' THEN
-            c_rank := 'Fair';
-		WHEN 'E' THEN
-            c_rank := 'POOR';
-		ELSE
-            c_rank := 'No such grade';
-	END CASE;
-	DBMS_OUTPUT.PUT_LINE( c_rank );
+  c_grade := 'Z';
+  CASE c_grade
+  WHEN 'A' THEN
+    c_rank := 'Excellent';
+  WHEN 'B' THEN
+    c_rank := 'Very Good';
+  WHEN 'C' THEN
+    c_rank := 'Good';
+  WHEN 'D' THEN
+    c_rank := 'Fair';
+  WHEN 'E' THEN
+    c_rank := 'POOR';
+  ELSE
+    c_rank := 'No such grade';
+  END CASE;
+  DBMS_OUTPUT.PUT_LINE( c_rank );
 END;
 /
 ```
@@ -78,24 +78,23 @@ The searched CASE statement follows the rules below:
 The following example illustrates how to use the searched CASE statement to calculate sales commission based on sales revenue.
 ```sql
 DECLARE
-    n_sales      NUMBER;
-    n_commission NUMBER;
+  n_sales      NUMBER;
+  n_commission NUMBER;
 BEGIN
-    n_sales := 150000;
-	CASE
-        WHEN n_sales      > 200000 THEN
-        	n_commission := 0.2;
-		WHEN n_sales     >= 100000 AND n_sales < 200000 THEN
-            n_commission  := 0.15;
-		WHEN n_sales     >= 50000 AND n_sales < 100000 THEN
-            n_commission := 0.1;
-		WHEN n_sales > 30000 THEN
-            n_commission := 0.05;
-		ELSE
-            n_commission := 0;
-	END CASE;
-
-	DBMS_OUTPUT.PUT_LINE( 'Commission is ' || n_commission * 100 || '%' ); -- will display : Commission is 15%
+  n_sales := 150000;
+  CASE
+    WHEN n_sales      > 200000 THEN
+      n_commission := 0.2;
+    WHEN n_sales     >= 100000 AND n_sales < 200000 THEN
+      n_commission  := 0.15;
+    WHEN n_sales     >= 50000 AND n_sales < 100000 THEN
+      n_commission := 0.1;
+    WHEN n_sales > 30000 THEN
+      n_commission := 0.05;
+    ELSE
+      n_commission := 0;
+  END CASE;
+  DBMS_OUTPUT.PUT_LINE( 'Commission is ' || n_commission * 100 || '%' ); -- will display : Commission is 15%
 END;
 /
 ```
