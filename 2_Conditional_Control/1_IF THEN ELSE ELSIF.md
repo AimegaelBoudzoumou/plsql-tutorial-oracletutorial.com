@@ -14,7 +14,7 @@ __IF THEN ELSIF__
 Syntax :
 ```sql
 IF condition THEN
-    statements;
+  statements;
 END IF;
 ```
 The condition is a Boolean expression that always evaluates to TRUE, FALSE, or NULL.
@@ -25,9 +25,9 @@ If the condition evaluates to TRUE, the statements after the THEN execute. Other
 ```sql
 DECLARE n_sales NUMBER := 2000000;
 BEGIN
-    IF n_sales > 1000000 THEN
-    	DBMS_OUTPUT.PUT_LINE( 'Sales revenue is greater than 100K' );
-	END IF;
+  IF n_sales > 1000000 THEN
+    DBMS_OUTPUT.PUT_LINE( 'Sales revenue is greater than 100K' );
+  END IF;
 END;
 /
 ```
@@ -36,14 +36,14 @@ END;
 Consider the following exampe:
 ```sql
 DECLARE
-    b_profitable BOOLEAN;
-	n_sales      NUMBER;
-    n_costs      NUMBER;
+  b_profitable BOOLEAN;
+  n_sales      NUMBER;
+  n_costs      NUMBER;
 BEGIN
-    b_profitable := false;
-	IF n_sales > n_costs THEN
-        b_profitable := true;
-    END IF;
+  b_profitable := false;
+  IF n_sales > n_costs THEN
+    b_profitable := true;
+  END IF;
 END;
 /
 ```
@@ -59,14 +59,14 @@ b_profitable := n_sales > n_costs;
 A Boolean variable is always TRUE, FALSE, or NULL. Therefore the following comparison is unnecessary:
 ```sql
 IF b_profitable = TRUE THEN
-	DBMS_OUTPUT.PUT_LINE( 'This sales deal is profitable' );
+  DBMS_OUTPUT.PUT_LINE( 'This sales deal is profitable' );
 END IF;
 ```
 
 Instead, use:
 ```sql
 IF b_profitable THEN
-	DBMS_OUTPUT.PUT_LINE( 'This sales deal is profitable' );
+  DBMS_OUTPUT.PUT_LINE( 'This sales deal is profitable' );
 END IF;
 ```
 
@@ -74,9 +74,9 @@ END IF;
 Syntax:
 ```sql
 IF condition THEN
-    statement;
+  statement;
 ELSE
-    else_statements;
+  else_statements;
 END IF;
 ```
 
@@ -89,15 +89,15 @@ Otherwise, the sales commission is set to 5%.
 */
 
 DECLARE
-    n_sales      NUMBER := 1000;
-	n_commission NUMBER( 10, 2) := 0;
+  n_sales      NUMBER         := 1000;
+  n_commission NUMBER( 10, 2) := 0;
 BEGIN
-    IF n_sales > 200000 THEN
-    	n_commission := n_sales * 0.1;
-    ELSE
-        n_commission := n_sales * 0.05;
-    END IF;
-	DBMS_OUTPUT.PUT_LINE('Commission = ' || n_commission); -- will display : Commission = 50
+  IF n_sales > 200000 THEN
+    n_commission := n_sales * 0.1;
+  ELSE
+    n_commission := n_sales * 0.05;
+  END IF;
+  DBMS_OUTPUT.PUT_LINE('Commission = ' || n_commission); -- will display : Commission = 50
 END;
 /
 ```
@@ -109,11 +109,11 @@ IF condition_1 THEN
 ELSIF condition_2 THEN
   statements_2
 [ ELSIF condition_3 THEN
-    statements_3
+  statements_3
 ]
 ...
 [ ELSE
-    else_statements
+  else_statements
 ]
 END IF;
 ```
@@ -125,18 +125,18 @@ If a condition is true, other subsequent conditions are not evaluated. If no con
 ### IF THEN ELSIF statement example
 ```sql
 DECLARE
-    n_sales NUMBER := 300000;
-	n_commission NUMBER( 10, 2 ) := 0;
+  n_sales NUMBER := 300000;
+  n_commission NUMBER( 10, 2 ) := 0;
 BEGIN
-    IF n_sales > 200000 THEN
-    	n_commission := n_sales * 0.1;
-	ELSIF n_sales <= 20000 AND n_sales > 100000 THEN
-        n_commission := n_sales * 0.05;
-	ELSIF n_sales <= 100000 AND n_sales > 50000 THEN
-        n_commission := n_sales * 0.03;
-	ELSE
-        n_commission := n_sales * 0.02;
-	END IF;
+  IF n_sales > 200000 THEN
+    n_commission := n_sales * 0.1;
+  ELSIF n_sales <= 20000 AND n_sales > 100000 THEN
+    n_commission := n_sales * 0.05;
+  ELSIF n_sales <= 100000 AND n_sales > 50000 THEN
+    n_commission := n_sales * 0.03;
+  ELSE
+    n_commission := n_sales * 0.02;
+  END IF;
 END;
 /
 ```
@@ -145,12 +145,11 @@ END;
 You can nest an IF statement within another IF statement as shown below:
 ```sql
 IF condition_1 THEN
-    IF condition_2 THEN
-        nested_if_statements;
-    END IF;
+  IF condition_2 THEN
+    nested_if_statements;
+  END IF;
 ELSE
-    else_statements;
+  else_statements;
 END IF; 
-
 ```
 However, if you have too many levels of nesting, the code will be hard to read and maintain, so you should avoid nesting the IF statements.
