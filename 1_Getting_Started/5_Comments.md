@@ -33,10 +33,10 @@ We often use a multi-line comment to describe the purpose of a block of code lik
     return the corresponding customer name and credit limit
 */
 DECLARE
-    l_customer_name customers.name%TYPE;
-    l_credit_limit customers.credit_limit%TYPE;
+  l_customer_name customers.name%TYPE;
+  l_credit_limit customers.credit_limit%TYPE;
 BEGIN
-   ...
+  ...
 END;
 /
 ```
@@ -44,12 +44,12 @@ END;
 For the maintainability, it is not a good practice to mix comments as follows:
 ```sql
 BEGIN
-    -- single-line comment /* another comment */
-    NULL;
-    /* 
-        multi-line comment 
-        -- that has another single-line comment 
-    */
+  -- single-line comment /* another comment */
+  NULL;
+  /*
+    multi-line comment 
+    -- that has another single-line comment 
+  */
 END;
 /
 ```
@@ -57,12 +57,12 @@ END;
 Instead, use the following:
 ```sql
 BEGIN
-    -- single-line comment, another comment
-    NULL;
-    /* 
-        multi-line comment 
-        that has another single-line comment 
-    */
+  -- single-line comment, another comment
+  NULL;
+  /* 
+    multi-line comment 
+    that has another single-line comment 
+  */
 END;
 /
 ```
