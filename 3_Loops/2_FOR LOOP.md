@@ -21,10 +21,10 @@ If lower_bound is equal to upper_bound, the statements execute only once. When l
 In this example, the loop index is l_counter, lower_bound is one, and upper_bound is five. The loop shows a list of integers from 1 to 5.
 ```sql
 BEGIN
-    FOR l_counter IN 1 .. 5
-   	LOOP
-    	DBMS_OUTPUT.PUT_LINE( l_counter );
-	END LOOP;
+  FOR l_counter IN 1 .. 5
+  LOOP
+    DBMS_OUTPUT.PUT_LINE( l_counter );
+  END LOOP;
 END;
 ```
 
@@ -32,11 +32,11 @@ END;
 The loop index is increased by one after each loop iteration and you cannot change the increment e.g., two, three, and four. However, you can use an additional variable to simulate the increment by two, three, four, etc., as shown in the example below:
 ```sql
 DECLARE
-    l_step PLS_INTEGER := 2;
+  l_step PLS_INTEGER := 2;
 BEGIN
-    FOR l_counter IN 1..5 LOOP
-    	dbms_output.put_line(l_counter*l_step);
-    END LOOP;
+  FOR l_counter IN 1..5 LOOP
+    dbms_output.put_line(l_counter*l_step);
+  END LOOP;
 END;
 ```
 
@@ -44,13 +44,14 @@ END;
 
 ```sql
 DECLARE
-    l_counter PLS_INTEGER := 10;
+  l_counter PLS_INTEGER := 10;
 BEGIN
-    FOR l_counter IN  1..5 LOOP
-    	dbms_output.put_line(l_counter);
-    END LOOP;
-	-- after the loop
-	DBMS_OUTPUT.PUT_LINE(l_counter);
+  FOR l_counter IN  1..5 LOOP
+    dbms_output.put_line(l_counter);
+  END LOOP;
+
+  -- after the loop
+  DBMS_OUTPUT.PUT_LINE(l_counter);
 END;
 ```
 In this example, we had a variable named l_counter, which is also the name of the index. The result shows that l_counter in the FOR loop hides the variable l_counter declared in the enclosing block.
@@ -59,14 +60,15 @@ To reference the variable l_counter inside the loop, you must qualify it using a
 ```sql
 <<outer>>
 DECLARE
-    l_counter PLS_INTEGER := 10;
+  l_counter PLS_INTEGER := 10;
 BEGIN
-    FOR l_counter IN 1..5 loop
-    	DBMS_OUTPUT.PUT_LINE('Local counter' || l_counter);
-		outer.l_counter := l_counter;
-	end loop;
-	-- after the loop
-	DBMS_OUTPUT.PUT_LINE('Global counter' || l_counter);
+  FOR l_counter IN 1..5 loop
+    DBMS_OUTPUT.PUT_LINE('Local counter' || l_counter);
+    outer.l_counter := l_counter;
+  end loop;
+
+  -- after the loop
+  DBMS_OUTPUT.PUT_LINE('Global counter' || l_counter);
 END outer;
 ```
 
@@ -74,11 +76,12 @@ END outer;
 The following example causes an error because it references the loop index, which is undefined, outside the FOR LOOP statement.
 ```sql
 BEGIN
-    FOR l_index IN 1..3 LOOP
-    	DBMS_OUTPUT.PUT_LINE (l_index);
-    END LOOP;
-	-- referencing index after the loop
-	DBMS_OUTPUT.PUT_LINE (l_index);
+  FOR l_index IN 1..3 LOOP
+    DBMS_OUTPUT.PUT_LINE (l_index);
+  END LOOP;
+
+  -- referencing index after the loop
+  DBMS_OUTPUT.PUT_LINE (l_index);
 END;
 ```
 Oracle issued the following error:
@@ -96,9 +99,9 @@ END LOOP;
 With the REVERSE keyword, the index is set to upper_bound and decreased by one in each loop iteration until it reaches lower_bound.
 ```sql
 BEGIN
-    FOR l_counter IN REVERSE 1..3
-    LOOP
-    	DBMS_OUTPUT.PUT_LINE(l_counter);
-    END LOOP;
+  FOR l_counter IN REVERSE 1..3
+  LOOP
+    DBMS_OUTPUT.PUT_LINE(l_counter);
+  END LOOP;
 END;
 ```
