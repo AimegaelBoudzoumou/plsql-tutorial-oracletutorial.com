@@ -12,10 +12,10 @@ constant_name CONSTANT datatype [NOT NULL]  := expression
 The following example declares two constants __co_payment_term__ and __co_payment_status__:
 ```sql
 declare
-    co_payment_term   CONSTANT NUMBER  := 45; -- days
-	co_payment_status CONSTANT BOOLEAN := FALSE;
+  co_payment_term   CONSTANT NUMBER  := 45; -- days
+  co_payment_status CONSTANT BOOLEAN := FALSE;
 begin
-    NULL;
+  NULL;
 end;
 /
 ```
@@ -23,10 +23,10 @@ end;
 If you attempt to change the co_payment_term in the execution section, PL/SQL will issue an error, for example:
 ```sql
 declare
-    co_payment_term   CONSTANT NUMBER  := 45; -- days
-	co_payment_status CONSTANT BOOLEAN := FALSE;
+  co_payment_term   CONSTANT NUMBER  := 45; -- days
+  co_payment_status CONSTANT BOOLEAN := FALSE;
 begin
-    co_payment_term := 30; -- error
+  co_payment_term := 30; -- error
 end;
 /
 ```
@@ -37,11 +37,11 @@ Here is the error message:
 The following illustrates how to declare a constant whose value is derived from an expression:
 ```sql
 DECLARE
-    co_pi     CONSTANT REAL := 3.14159;
-	co_radius CONSTANT REAL := 10;
-	co_area   CONSTANT REAL := (co_pi * co_radius**2);
+  co_pi     CONSTANT REAL := 3.14159;
+  co_radius CONSTANT REAL := 10;
+  co_area   CONSTANT REAL := (co_pi * co_radius**2);
 BEGIN
-    DBMS_OUTPUT.PUT_LINE(co_area);
+  DBMS_OUTPUT.PUT_LINE(co_area);
 END;
 /
 ```
