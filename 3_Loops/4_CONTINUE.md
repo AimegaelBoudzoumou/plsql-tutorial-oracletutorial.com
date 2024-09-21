@@ -21,14 +21,14 @@ The CONTINUE can be used in all loop constructs including LOOP, FOR LOOP and WHI
 The following is a simple example of using the CONTINUE statement to skip over loop body execution for odd numbers:
 ```sql
 BEGIN
-    FOR n_index IN 1 .. 10
-    LOOP
-    	-- skip odd numbers
-    	IF MOD(n_index, 2) = 1 THEN
-    		CONTINUE;
-		END IF;
-		DBMS_OUTPUT.PUT_LINE(n_index);
-    END LOOP;
+  FOR n_index IN 1 .. 10
+  LOOP
+    -- skip odd numbers
+    IF MOD(n_index, 2) = 1 THEN
+      CONTINUE;
+    END IF;
+    DBMS_OUTPUT.PUT_LINE(n_index);
+  END LOOP;
 END;
 ```
 
