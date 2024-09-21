@@ -40,16 +40,16 @@ END LOOP;
 The following example illustrates how to use the LOOP statement to execute a sequence of code and EXIT statement to terminate the loop.
 ```sql
 declare
-	l_counter NUMBER := 0;
+  l_counter NUMBER := 0;
 begin
-	loop
-		l_counter := l_counter + 1;
-		if l_counter > 3 then
-			exit;
-		end if;
-		dbms_output.put_line('Inside loop: ' || l_counter);
-	end loop;
-	dbms_output.put_line('After loop: ' || l_counter);
+  loop
+    l_counter := l_counter + 1;
+    if l_counter > 3 then
+      exit;
+    end if;
+    dbms_output.put_line('Inside loop: ' || l_counter);
+  end loop;
+  dbms_output.put_line('After loop: ' || l_counter);
 end;
 ```
 
@@ -66,14 +66,14 @@ Each time the control reaches the EXIT WHEN statement, the condition is evaluate
 The following example uses the EXIT WHEN statement to terminate a loop.
 ```sql
 declare
-	l_counter NUMBER := 0;
+ l_counter NUMBER := 0;
 begin
-	loop
-		l_counter := l_counter + 1;
-		EXIT WHEN l_counter > 7;
-		dbms_output.put_line('Inside loop: ' || l_counter );
-	end loop;
-	dbms_output.put_line( 'After loop:' || l_counter);
+  loop
+    l_counter := l_counter + 1;
+    EXIT WHEN l_counter > 7;
+    dbms_output.put_line('Inside loop: ' || l_counter );
+  end loop;
+  dbms_output.put_line( 'After loop:' || l_counter);
 end;
 ```
 ## Constructing nested loops using PL/SQL LOOP statements
@@ -87,15 +87,16 @@ BEGIN
   <<outer_loop>>
   LOOP
     l_i := l_i + 1;
-	EXIT outer_loop WHEN l_i > 2;
-	dbms_output.put_line('Outer counter ' || l_i);
+    EXIT outer_loop WHEN l_i > 2;
+    dbms_output.put_line('Outer counter ' || l_i);
+
     -- reset inner counter
-	l_j := 0;
-      <<inner_loop>> LOOP
+    l_j := 0;
+    <<inner_loop>> LOOP
       l_j := l_j + 1;
       EXIT inner_loop WHEN l_j > 3;
       dbms_output.put_line(' Inner counter ' || l_j );
-      END LOOP inner_loop;
+    END LOOP inner_loop;
   END LOOP outer_loop;
-end;
+END;
 ```
