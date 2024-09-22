@@ -157,3 +157,5 @@ END;
 Erreur à exploiter :
 ORA-06550: line 22, column 9:
 PL/SQL: ORA-00918: column ambiguously defined 
+
+## PL/SQL SELECT INTO common errors
