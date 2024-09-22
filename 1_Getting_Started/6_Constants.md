@@ -9,9 +9,13 @@ constant_name CONSTANT datatype [NOT NULL]  := expression
 ```
 
 Name     : Such a constant
+
 CONSTANT : Created with the CONSTANT keyword
+
 DataType : Is of such a data type
+
 NOT NULL : Is possibly non-null
+
 Value    : Must be initialized to such a value"
 
 ## PL/SQL constant examples
