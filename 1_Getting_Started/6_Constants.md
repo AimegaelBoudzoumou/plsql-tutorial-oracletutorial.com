@@ -8,6 +8,12 @@ To declare a constant, you specify the name, CONSTANT keyword, data type, and th
 constant_name CONSTANT datatype [NOT NULL]  := expression
 ```
 
+Name     : Such a constant
+CONSTANT : Created with the CONSTANT keyword
+DataType : Is of such a data type
+NOT NULL : Is possibly non-null
+Value    : Must be initialized to such a value"
+
 ## PL/SQL constant examples
 The following example declares two constants __co_payment_term__ and __co_payment_status__:
 ```sql
