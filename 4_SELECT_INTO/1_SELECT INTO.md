@@ -48,6 +48,8 @@ create table contacts (
 );
 
 insert into customers values (100, 'Massengo', '15 rue Mbiemo - Bifouiti', 'www.plsql-experts.com', 100.50);
+insert into contacts values (1235, 'Musseini', 'Jojolana', 'j.museini@gmail.com', 21548512, 100);
+
 
 DECLARE
   l_customer_name customers.name%TYPE;
@@ -66,4 +68,92 @@ end;
 
 The following example fetches the entire row from the customers table for a specific customer ID:
 ```sql
+DECLARE
+  r_customer customers%ROWTYPE;
+BEGIN
+  -- get the information of the customer 100
+  SELECT * 
+  INTO r_customer
+  FROM customers 
+  WHERE customer_id = 100;
+
+  -- show the customer info
+  DBMS_OUTPUT.PUT_LINE ( r_customer.customer_id || ', ' || 
+                         r_customer.name || ', ' || 
+                         r_customer.address || ', ' || 
+                         r_customer.website || ', ' || 
+                         r_customer.credit_limit );
+END;
 ```
+
+### 3) Selecting data into multiple variables example
+The following example fetches the names of customers and contacts from the customers and contacts tables for a specific customer id.
+```sql
+
+DECLARE
+  l_customer_name      customers.name%TYPE;
+  l_contact_first_name contacts.first_name%TYPE;
+  l_contact_last_name  contacts.last_name%TYPE;
+
+-- other méthod to test :
+  -- create a record
+  -- CURSOR c_customer_contact IS
+    -- SELECT name
+  
+BEGIN
+  -- get customer and contact names
+  SELECT name, 
+         first_name, 
+         last_name
+  INTO 
+    l_customer_name, 
+    l_contact_first_name, 
+    l_contact_last_name
+  FROM customers cu
+  INNER JOIN contacts USING (customer_id)
+  WHERE customer_id = 100;
+
+  DBMS_OUTPUT.PUT_LINE( l_customer_name || ' - ' || l_contact_first_name || ' - ' || l_contact_last_name );
+END;
+```
+
+The following example fetches the names of customers and contacts from the customers and contacts tables for a customers.customer_id match to the contacts.customer_id
+Note : le code suivant est à améliorer (piste de réflexion: CURSOR, RECORD)
+```sql
+insert into customers values (101, 'Mboungou', '1 avenue Matsiona - Mindouli', 'www.plsql-avance.com', 200.90);
+insert into customers values (102, 'Ekoka', '89 Bd La Tiémé - Ngamakosso', 'www.plsql-extra.com', 980.90);
+
+insert into contacts values (12458, 'Moussavou', 'Nanatintou', 'nana_la_belle@gmail.com', 254854512, 101);
+
+
+DECLARE
+  l_customer_name      customers.name%TYPE;
+  l_contact_first_name contacts.first_name%TYPE;
+  l_contact_last_name  contacts.last_name%TYPE;
+
+-- other méthod to test :
+  -- create a record
+  -- CURSOR c_customer_contact IS
+    -- SELECT name
+  
+BEGIN
+  -- get customer and contact names
+  SELECT name, 
+         first_name, 
+         last_name
+  INTO 
+    l_customer_name, 
+    l_contact_first_name, 
+    l_contact_last_name
+  FROM customers cu
+  INNER JOIN contacts co 
+  ON cu.customer_id = co.customer_id; 
+  --INNER JOIN contacts USING (customer_id)
+  --WHERE customer_id = 100;
+
+  DBMS_OUTPUT.PUT_LINE( l_customer_name || ' - ' || l_contact_first_name || ' - ' || l_contact_last_name );
+END;
+```
+Erreur à exploiter :
+ORA-06550: line 22, column 9:
+PL/SQL: ORA-00918: column ambiguously defined 
