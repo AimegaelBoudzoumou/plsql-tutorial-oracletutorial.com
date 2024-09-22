@@ -16,7 +16,7 @@ DataType : Is of such a data type
 
 NOT NULL : Is possibly non-null
 
-Value    : Must be initialized to such a value"
+Value    : Must be initialized to such a value
 
 ## PL/SQL constant examples
 The following example declares two constants __co_payment_term__ and __co_payment_status__:
