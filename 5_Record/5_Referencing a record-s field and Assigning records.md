@@ -79,8 +79,3 @@ INTO
   r_contact.last_name,
   r_contact.phone;
 ```
-
-Example
-```sql
-
-```
