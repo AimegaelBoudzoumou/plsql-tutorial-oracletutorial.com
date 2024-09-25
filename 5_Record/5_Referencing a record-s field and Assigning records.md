@@ -48,19 +48,21 @@ CREATE TABLE contacts (
     phone      varchar2(100)
 );
 
-insert into contacts values (100,'Paul', 'Museni', '521-584-5412');
+INSERT INTO contacts VALUES (100,'Paul', 'Museni', '521-584-5412');
 
 DECLARE
-  r_contact contacts%ROWTYPE;
+  r_contact_1 contacts%ROWTYPE;
 BEGIN
   SELECT
     contact_id, first_name, last_name, phone
   INTO
-    r_contact
+    r_contact_1
   FROM
     contacts
   WHERE
     contact_id = 100;
+
+  DBMS_OUTPUT.PUT_LINE('Fist name of contact 1 is : ' || r_contact_1.first_name);
 END;
 ```
 
